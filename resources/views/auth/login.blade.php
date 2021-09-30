@@ -29,7 +29,7 @@
                         <form method="post" action="{{ url('/login') }}">
                             @csrf
                             <h1>Login</h1>
-                            <p class="text-muted">Sign In to your account</p>
+                            <p class="text-muted">Entrar na sua conta</p>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -63,22 +63,23 @@
                                 </div>
                                 <div class="col-6 text-right">
                                     <a class="btn btn-link px-0" href="{{ url('/password/reset') }}">
-                                        Forgot password?
+                                        Esqueceu a password?
                                     </a>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-                    <div class="card-body text-center">
+                <div class="card text-white  py-5 d-md-down-none" style="width:54%">
+                    <img src="images/login_img.jpg">
+{{--                    <div class="card-body text-center">
                         <div>
                             <h2>Sign up</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna aliqua.</p>
                                 <a class="btn btn-primary active mt-3" href="{{ url('/register') }}">Register Now!</a>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
