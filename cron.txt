@@ -1,0 +1,36 @@
+/usr/local/bin/ea-php71 /home/dzenerco/manager.bulir.pt/cronjob.sh
+
+/usr/local/bin/ea-php71 -q /home/dzenerco/manager.bulir.pt/artisan optimize
+
+/usr/local/bin/ea-php71 -q /home/dzenerco/manager.bulir.pt/artisan route:clear
+
+
+/usr/local/bin/ea-php72 -q /home/dzenerco/mrosa.bulir.pt/artisan optimize
+/usr/local/bin/ea-php72 -q /home/dzenerco/started.dzener.com/artisan
+
+/usr/local/bin/ea-php71 -q /home/dzenerco/comercial.bulir.pt/artisan optimize
+/usr/local/bin/ea-php72 -q /home/dzenerco/manager.clinicapontodeequilibrio.pt/artisan config:clear
+
+php artisan route:clear
+/usr/local/bin/ea-php72 -q /home/dzenerco/biblioteca.dzener.com/ composer update
+/usr/local/bin/ea-php72 -q /home/dzenerco/biblioteca.dzener.com/artisan optimize
+
+/usr/local/bin/ea-php72 -q /home/dzenerco/biblioteca.dzener.com/composer.phar update composer.json
+/usr/local/bin/ea-php72 -q /home/dzenerco/biblioteca.dzener.com/change.php
+/usr/local/bin/php -q /home/dzenerco/biblioteca.dzener.com/artisan optimize
+/usr/local/bin/php -q /home/dzenerco/biblioteca.dzener.com/artisan key:generate
+
+
+/usr/local/bin/php -q /home/dzenerco/clinicapontodeequilibrio.pt/change.php
+/usr/local/bin/php -q /home/dzenerco/clinicapontodeequilibrio.pt/artisan optimize
+
+
+/usr/local/bin/php -q /home/dzenerco/biblioteca.dzener.com/change.php
+/usr/local/bin/php -q /home/dzenerco/biblioteca.dzener.com/artisan optimize
+
+
+/usr/local/bin/php -q /home/dzenerco/biblioteca.dzener.com/artisan config:clear
+/usr/local/bin/php -q /home/dzenerco/biblioteca.dzener.com/artisan storage:link
+
+
+/usr/local/bin/php -q /home/dzenerco/manager.bibliotecadojanardo.pt/artisan optimize

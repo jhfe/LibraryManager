@@ -17,14 +17,22 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/', function () {
+/*    Route::get('/', function () {
         return view('welcome');
-    });
-
+    });*/
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
     Route::resource('categories', App\Http\Controllers\CategoryController::class);
 
     Route::resource('tags', App\Http\Controllers\TagController::class);
+
+    Route::resource('authors', App\Http\Controllers\AuthorController::class);
+
+    Route::resource('members', App\Http\Controllers\MemberController::class);
+
+    Route::resource('publishers', App\Http\Controllers\PublisherController::class);
 });
+
+
