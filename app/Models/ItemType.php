@@ -7,21 +7,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Category
+ * Class ItemType
  * @package App\Models
- * @version September 29, 2021, 2:29 pm UTC
+ * @version October 6, 2021, 10:18 am UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $items
  * @property string $name
- * @property string $slug
+ * @property boolean $state
  */
-class Category extends Model
+class ItemType extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'categories';
-
+    public $table = 'item_types';
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -32,7 +33,6 @@ class Category extends Model
 
     public $fillable = [
         'name',
-        'slug',
         'state'
     ];
 
@@ -44,8 +44,7 @@ class Category extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'slug' => 'string',
-        'state' => 'integer'
+        'state' => 'boolean'
     ];
 
     /**
@@ -55,11 +54,17 @@ class Category extends Model
      */
     public static $rules = [
         'name' => 'nullable|string|max:255',
-        'slug' => 'nullable|string|max:255',
+        'state' => 'nullable|boolean',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
 
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function items()
+    {
+        return $this->hasMany(\App\Models\Item::class, 'item_type_id');
+    }
 }

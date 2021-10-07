@@ -33,6 +33,15 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('members', App\Http\Controllers\MemberController::class);
 
     Route::resource('publishers', App\Http\Controllers\PublisherController::class);
+
+    Route::resource('items', App\Http\Controllers\ItemController::class);
 });
 
 
+
+
+
+
+
+
+Route::resource('itemTypes', App\Http\Controllers\ItemTypeController::class);
