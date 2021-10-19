@@ -99,10 +99,15 @@ class ItemController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function edit($id)
     {
+        $itemTypes = ItemType::where('state',1)->pluck('name','id')->toArray();
+        $authors = Author::pluck('name','id')->toArray();
+        $publishers = Publisher::where('state',1)->pluck('name','id')->toArray();
+        $categories = Category::where('state',1)->pluck('name','id')->toArray();
+
         $item = $this->itemRepository->find($id);
 
         if (empty($item)) {
@@ -110,8 +115,14 @@ class ItemController extends AppBaseController
 
             return redirect(route('items.index'));
         }
+        return view('items.edit')->with([
+            'item' => $item,
+            'itemTypes' => $itemTypes,
+            'authors' => $authors,
+            'publishers' => $publishers,
+            'categories' => $categories
+        ]);
 
-        return view('items.edit')->with('item', $item);
     }
 
     /**
