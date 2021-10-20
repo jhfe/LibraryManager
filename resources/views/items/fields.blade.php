@@ -142,6 +142,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+{{--    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}--}}
+    <button class="btn btn-primary" onclick="$('#itemCreate').submit"></button>
     <a href="{{ route('items.index') }}" class="btn btn-secondary">Voltar</a>
 </div>

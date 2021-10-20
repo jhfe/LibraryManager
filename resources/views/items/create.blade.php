@@ -18,7 +18,7 @@
                                 <strong>Create Item</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'items.store']) !!}
+                                {!! Form::open(['route' => 'items.store','id'=>'itemCreate']) !!}
 
                                    @include('items.fields')
 
