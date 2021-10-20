@@ -37,7 +37,7 @@ class Item extends Model
     use HasFactory;
 
     public $table = 'items';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -123,5 +123,20 @@ class Item extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function publisher()
+    {
+        return $this->belongsTo(Publisher::class);
+    }
+    public function itemType()
+    {
+        return $this->belongsTo(ItemType::class);
+    }
 }

@@ -46,7 +46,8 @@ class CategoryDataTable extends DataTable
             ->parameters([
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
+                'serverSide' => true,
+                'order'     => [[1, 'ASC']],
                 'buttons'   => [
 /*                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -65,8 +66,17 @@ class CategoryDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'slug'
+            [
+                "name" => "name",
+                "title" => "Nome",
+                "data" => "name"
+            ],
+            [
+                "name" => "slug",
+                "title" => "Slug",
+                "data" => "slug"
+            ],
+
         ];
     }
 

@@ -1,85 +1,90 @@
 <!-- Nickname Field -->
-<div class="form-group col-sm-6">
+{{--<div class="form-group col-sm-6">
     {!! Form::label('nickname', 'Nickname:') !!}
     {!! Form::text('nickname', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
-</div>
+</div>--}}
+<div class="row">
+    <!-- Name Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('name', 'Nome:') !!}
+        {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
+    </div>
 
-<!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
-</div>
+    <!-- Country Field -->
+    <div class="form-group col-sm-2">
+        {!! Form::label('country', 'País:') !!}
+        {!! Form::text('country', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
 
-<!-- Country Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('country', 'Country:') !!}
-    {!! Form::text('country', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-</div>
+    <!-- Year Born Field -->
+    <div class="form-group col-sm-2">
+        {!! Form::label('year_born', 'Nascido a:') !!}
+        {!! Form::text('year_born', null, ['class' => 'form-control','id'=>'year_born','autocomplete'=>false]) !!}
+    </div>
 
-<!-- Year Born Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('year_born', 'Year Born:') !!}
-    {!! Form::text('year_born', null, ['class' => 'form-control','id'=>'year_born']) !!}
-</div>
+    @push('scripts')
+        <script type="text/javascript">
+            $('#year_born').datetimepicker({
+                format: 'YYYY-MM-DD',
+                useCurrent: true,
+                icons: {
+                    up: "icon-arrow-up-circle icons font-2xl",
+                    down: "icon-arrow-down-circle icons font-2xl"
+                },
 
-@push('scripts')
-   <script type="text/javascript">
-           $('#year_born').datetimepicker({
-               format: 'YYYY-MM-DD HH:mm:ss',
-               useCurrent: true,
-               icons: {
-                   up: "icon-arrow-up-circle icons font-2xl",
-                   down: "icon-arrow-down-circle icons font-2xl"
-               },
-               sideBySide: true
-           })
-       </script>
-@endpush
+            })
+        </script>
+    @endpush
 
 
 <!-- Year Died Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('year_died', 'Year Died:') !!}
-    {!! Form::text('year_died', null, ['class' => 'form-control','id'=>'year_died']) !!}
+    <div class="form-group col-sm-2">
+        {!! Form::label('year_died', 'Falecido a:') !!}
+        {!! Form::text('year_died', null, ['class' => 'form-control','id'=>'year_died','autocomplete'=>false]) !!}
+    </div>
+
+    @push('scripts')
+        <script type="text/javascript">
+            $('#year_died').datetimepicker({
+                format: 'YYYY-MM-DD',
+                useCurrent: true,
+                icons: {
+                    up: "icon-arrow-up-circle icons font-2xl",
+                    down: "icon-arrow-down-circle icons font-2xl"
+                },
+
+            })
+        </script>
+    @endpush
+
 </div>
 
-@push('scripts')
-   <script type="text/javascript">
-           $('#year_died').datetimepicker({
-               format: 'YYYY-MM-DD HH:mm:ss',
-               useCurrent: true,
-               icons: {
-                   up: "icon-arrow-up-circle icons font-2xl",
-                   down: "icon-arrow-down-circle icons font-2xl"
-               },
-               sideBySide: true
-           })
-       </script>
-@endpush
+<div class="row">
+    <!-- Biography Field -->
+    <div class="form-group col-sm-6 col-lg-6">
+        {!! Form::label('biography', 'Biografia:') !!}
+        {!! Form::textarea('biography', null, ['class' => 'form-control']) !!}
+    </div>
 
-
-<!-- Biography Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('biography', 'Biography:') !!}
-    {!! Form::textarea('biography', null, ['class' => 'form-control']) !!}
+    <!-- Publications Field -->
+    <div class="form-group col-sm-6 col-lg-6">
+        {!! Form::label('publications', 'Publicações:') !!}
+        {!! Form::textarea('publications', null, ['class' => 'form-control']) !!}
+    </div>
 </div>
+<div class="row">
+    <!-- Awards Field -->
+    <div class="form-group col-sm-6 col-lg-6">
+        {!! Form::label('awards', 'Prémios:') !!}
+        {!! Form::textarea('awards', null, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Publications Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('publications', 'Publications:') !!}
-    {!! Form::textarea('publications', null, ['class' => 'form-control']) !!}
-</div>
+    <!-- Reference Field -->
+    <div class="form-group col-sm-6 col-lg-6">
+        {!! Form::label('reference', 'Referencias:') !!}
+        {!! Form::textarea('reference', null, ['class' => 'form-control']) !!}
+    </div>
 
-<!-- Awards Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('awards', 'Awards:') !!}
-    {!! Form::textarea('awards', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Reference Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('reference', 'Reference:') !!}
-    {!! Form::textarea('reference', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- State Field -->

@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             <a href="{!! route('publishers.index') !!}">Publisher</a>
+             <a href="{!! route('publishers.index') !!}">Editora</a>
           </li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
@@ -15,7 +15,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit Publisher</strong>
+                              <strong>Editar Editora</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($publisher, ['route' => ['publishers.update', $publisher->id], 'method' => 'patch']) !!}

@@ -65,8 +65,16 @@ class ItemTypeDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'state'
+            [
+                "name" => "name",
+                "title" => "Nome",
+                "data" => "name"
+            ],
+            [
+                "name" => "state",
+                "title" => "Estado",
+                "data" => "state"
+            ],
         ];
     }
 

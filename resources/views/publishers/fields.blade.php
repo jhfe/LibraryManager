@@ -1,42 +1,47 @@
-<!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+<div class="row">
+    <!-- Name Field -->
+    <div class="form-group col-sm-4">
+        {!! Form::label('name', 'Nome:') !!}
+        {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
+
+    <!-- Address Field -->
+    <div class="form-group col-sm-4">
+        {!! Form::label('address', 'Morada') !!}
+        {!! Form::text('address', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group col-sm-4">
+        {!! Form::label('email', 'Email:') !!}
+        {!! Form::email('email', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
 </div>
 
-<!-- Address Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('address', 'Address:') !!}
-    {!! Form::text('address', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
+<div class="row">
+    <!-- Phone Field -->
+    <div class="form-group col-sm-4">
+        {!! Form::label('phone', 'Contacto:') !!}
+        {!! Form::text('phone', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
+
+    <!-- Country Field -->
+    <div class="form-group col-sm-4">
+        {!! Form::label('country', 'País:') !!}
+        {!! Form::text('country', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
+
+    <!-- Website Field -->
+    <div class="form-group col-sm-4">
+        {!! Form::label('website', 'Website:') !!}
+        {!! Form::text('website', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
 </div>
 
-<!-- Email Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-</div>
-
-<!-- Phone Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('phone', 'Phone:') !!}
-    {!! Form::text('phone', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-</div>
-
-<!-- Country Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('country', 'Country:') !!}
-    {!! Form::text('country', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-</div>
-
-<!-- Website Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('website', 'Website:') !!}
-    {!! Form::text('website', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-</div>
 
 <!-- State Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('state', 'State:') !!}
+    {!! Form::label('state', 'Estado:') !!}
     <label class="checkbox-inline">
         {!! Form::hidden('state', 0) !!}
         {!! Form::checkbox('state', '1', null) !!}
@@ -46,6 +51,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('publishers.index') }}" class="btn btn-secondary">Cancel</a>
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+    <a href="{{ route('publishers.index') }}" class="btn btn-secondary">Voltar</a>
 </div>

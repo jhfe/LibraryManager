@@ -18,7 +18,13 @@ class AuthorDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'authors.datatables_actions');
+        return $dataTable
+            ->editColumn('year_born', function ($data) {
+                if(isset($data->year_born)){
+                    return $data->year_born->format('Y-m-d');
+                }
+            })
+            ->addColumn('action', 'authors.datatables_actions');
     }
 
     /**
@@ -45,8 +51,10 @@ class AuthorDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'       => 'Bfrtip',
-                'stateSave' => true,
-                'order'     => [[0, 'desc']],
+                'processing' => true,
+                'serverSide' => true,
+/*                'stateSave' => true,*/
+                'order'     => [[2, 'desc']],
                 'buttons'   => [
 /*                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -65,8 +73,27 @@ class AuthorDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nickname',
-            'name',
+            [
+                "name" => "name",
+                "title" => "Nome",
+                "data" => "name"
+            ],
+            [
+                "name" => "country",
+                "title" => "País",
+                "data" => "country"
+            ],
+            [
+                "name" => "year_born",
+                "title" => "Nascido a ",
+                "data" => "year_born"
+            ],
+/*            [
+                "name" => "year_died",
+                "title" => "Falecido",
+                "data" => "year_died"
+            ],*/
+/*            'name',
             'country',
             'year_born',
             'year_died',
@@ -74,7 +101,7 @@ class AuthorDataTable extends DataTable
             'publications',
             'awards',
             'reference',
-            'state'
+            'state'*/
         ];
     }
 

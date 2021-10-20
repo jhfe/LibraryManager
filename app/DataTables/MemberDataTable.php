@@ -65,17 +65,37 @@ class MemberDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'email',
-            'citizen_card',
-            'phone',
-            'address',
-            'zip_code',
-            'location',
-            'state_login',
-            'type_menber_id',
-            'menber_group_id',
-            'state'
+            [
+                "name" => "name",
+                "title" => "Nome",
+                "data" => "name"
+            ],
+            [
+                "name" => "email",
+                "title" => "Email",
+                "data" => "email"
+            ],
+            [
+                "name" => "phone",
+                "title" => "Contacto",
+                "data" => "phone"
+            ],
+            [
+                "name" => "citizen_card",
+                "title" => "ID",
+                "data" => "citizen_card"
+            ],
+            [
+                "name" => "state_login",
+                "title" => "Login",
+                "data" => "state_login"
+            ],
+            [
+                "name" => "state",
+                "title" => "Estado",
+                "data" => "state"
+            ],
+
         ];
     }
 

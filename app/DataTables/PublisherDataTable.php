@@ -46,7 +46,7 @@ class PublisherDataTable extends DataTable
             ->parameters([
                 'dom'       => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
+                'order'     => [[0, 'asc']],
                 'buttons'   => [
 /*                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -65,13 +65,32 @@ class PublisherDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'address',
-            'email',
-            'phone',
-            'country',
-            'website',
-            'state'
+            [
+                "name" => "name",
+                "title" => "Nome",
+                "data" => "name"
+            ],
+            [
+                "name" => "email",
+                "title" => "Email",
+                "data" => "email"
+            ],
+            [
+                "name" => "phone",
+                "title" => "Contacto",
+                "data" => "phone"
+            ],
+            [
+                "name" => "website",
+                "title" => "Site",
+                "data" => "website"
+            ],
+            [
+                "name" => "state",
+                "title" => "Estado",
+                "data" => "state"
+            ],
+
         ];
     }
 
