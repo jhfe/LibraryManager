@@ -29,7 +29,7 @@ class ItemDataTable extends DataTable
      */
     public function query(Item $model)
     {
-        return $model->with('author')->with('category')->with('publisher')->with('itemType')->newQuery();
+        return $model->with('publisher')->with('category')->with('author')->with('itemType')->select('items.*')->newQuery();
     }
 
     /**
@@ -45,8 +45,8 @@ class ItemDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'       => 'Bfrtip',
-                'stateSave' => true,
-                'order'     => [[2, 'ASC']],
+
+                'order'     => [[0, 'ASC']],
                 'buttons'   => [
                     /*                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                                         ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -82,9 +82,9 @@ class ItemDataTable extends DataTable
                 "data" => "category.name"
             ],
             [
-                "name" => "item_type_id",
+                "name" => "item_type.name",
                 "title" => "Tipo",
-                "data" => "item_type_id"
+                "data" => "item_type.name"
             ],
             [
                 "name" => "publisher.name",

@@ -8,6 +8,7 @@ use App\Http\Requests\CreateItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Item;
 use App\Models\ItemType;
 use App\Models\Publisher;
 use App\Repositories\ItemRepository;
@@ -103,15 +104,18 @@ class ItemController extends AppBaseController
      */
     public function edit($id)
     {
+
+
+        $item = $this->itemRepository->find($id);
+
+
         $itemTypes = ItemType::where('state',1)->pluck('name','id')->toArray();
         $authors = Author::pluck('name','id')->toArray();
         $publishers = Publisher::where('state',1)->pluck('name','id')->toArray();
         $categories = Category::where('state',1)->pluck('name','id')->toArray();
 
-        $item = $this->itemRepository->find($id);
-
         if (empty($item)) {
-            Flash::error('Item not found');
+            Flash::error('Item not found -Edit');
 
             return redirect(route('items.index'));
         }
