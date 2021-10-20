@@ -89,6 +89,7 @@ class Item extends Model
         'subject' => 'string',
         'abstract' => 'string',
         'description' => 'string',
+        'picture' => 'string',
         'state' => 'boolean',
         'published' => 'boolean',
         'circulation' => 'boolean'
@@ -115,6 +116,7 @@ class Item extends Model
         'subject' => 'nullable|string|max:500',
         'abstract' => 'nullable|string',
         'description' => 'nullable|string',
+        'picture' => 'nullable|string',
         'state' => 'nullable|boolean',
         'published' => 'nullable|boolean',
         'circulation' => 'nullable|boolean',

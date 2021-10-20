@@ -21,7 +21,7 @@
     <!-- Isbn Barcode Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('isbn_barcode', 'Isbn Barcode:') !!}
-        {!! Form::text('isbn_barcode', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+        {!! Form::text('isbn_barcode', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'autocomplete'=>false]) !!}
     </div>
 
     <!-- Call No Field -->
