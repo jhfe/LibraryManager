@@ -66,6 +66,9 @@
                 },
                 sideBySide: true
             })
+            function itemCreateSub(){
+                $('#itemCreate').submit();
+            }
         </script>
 @endpush
 
@@ -138,11 +141,11 @@
         {!! Form::checkbox('circulation', '1', null) !!}
     </label>
 </div>
-
-
+</form>
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
 {{--    {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}--}}
-    <button class="btn btn-primary" onclick="$('#itemCreate').submit"></button>
+    <button class="btn btn-primary" onclick="$('#itemCreate').submit();">Guardar</button>
     <a href="{{ route('items.index') }}" class="btn btn-secondary">Voltar</a>
 </div>
+
