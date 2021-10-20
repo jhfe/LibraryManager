@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="card text-white  py-5 d-md-down-none" style="width:54%">
-                    <img src="images/login_img.jpg">
+                    <img src="images/login_imgxs.jpg">
 {{--                    <div class="card-body text-center">
                         <div>
                             <h2>Sign up</h2>

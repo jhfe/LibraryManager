@@ -18,7 +18,11 @@ class ItemDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'items.datatables_actions');
+        return $dataTable
+            ->addColumn('itemType', function ($data) {
+                return $data->itemType->name;
+            })
+            ->addColumn('action', 'items.datatables_actions');
     }
 
     /**
@@ -82,9 +86,9 @@ class ItemDataTable extends DataTable
                 "data" => "category.name"
             ],
             [
-                "name" => "item_type.name",
+                "name" => "itemType",
                 "title" => "Tipo",
-                "data" => "item_type.name"
+                "data" => "itemType"
             ],
             [
                 "name" => "publisher.name",
