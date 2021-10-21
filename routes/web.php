@@ -35,6 +35,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('publishers', App\Http\Controllers\PublisherController::class);
 
     Route::resource('items', App\Http\Controllers\ItemController::class);
+
+    Route::resource('itemTypes', App\Http\Controllers\ItemTypeController::class);
+
+    Route::resource('users', App\Http\Controllers\UserController::class);
 });
 
 
@@ -44,4 +48,3 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 
-Route::resource('itemTypes', App\Http\Controllers\ItemTypeController::class);

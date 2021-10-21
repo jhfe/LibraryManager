@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             <a href="{!! route('items.index') !!}">Item</a>
+             <a href="{!! route('users.index') !!}">User</a>
           </li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
@@ -15,12 +15,12 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit Item</strong>
+                              <strong>Edit User</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($item, ['route' => ['items.update', $item->id], 'method' => 'patch','id'=>'itemCreate','enctype'=>"multipart/form-data"]) !!}
+                              {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch']) !!}
 
-                              @include('items.fields')
+                              @include('users.fields')
 
                               {!! Form::close() !!}
                             </div>

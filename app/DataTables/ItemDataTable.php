@@ -22,6 +22,13 @@ class ItemDataTable extends DataTable
             ->addColumn('itemType', function ($data) {
                 return $data->itemType->name;
             })
+            ->editColumn('picture_path', function ($data) {
+                if(isset($data->picture_path)){
+                    return '<img src="storage/thumbnail/'.$data->picture_path.'">';
+                }
+                return '<img src="images/cover_th.png" width="64px" height="80px">';
+            })
+            ->rawColumns(['action','picture_path'])
             ->addColumn('action', 'items.datatables_actions');
     }
 
@@ -50,7 +57,7 @@ class ItemDataTable extends DataTable
             ->parameters([
                 'dom'       => 'Bfrtip',
 
-                'order'     => [[0, 'ASC']],
+                'order'     => [[1, 'ASC']],
                 'buttons'   => [
                     /*                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                                         ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -69,7 +76,11 @@ class ItemDataTable extends DataTable
     protected function getColumns()
     {
         return [
-
+            [
+                "name" => "picture_path",
+                "title" => "Cover",
+                "data" => "picture_path"
+            ],
             [
                 "name" => "title",
                 "title" => "Titulo",

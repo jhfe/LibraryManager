@@ -1,3 +1,6 @@
+@push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @endpush
 <div class="row">
     <!-- Title Field -->
     <div class="form-group col-sm-6">
@@ -42,6 +45,7 @@
 
     </div>
 </div>
+
 <div class="row">
     <!-- Edition Field -->
     <div class="form-group col-sm-3">
@@ -93,22 +97,31 @@
     </div>
 
     <!-- Subject Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-9">
         {!! Form::label('subject', 'Assunto:') !!}
         {!! Form::text('subject', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
     </div>
 </div>
 <div class="row">
+{{--
     <!-- Abstract Field -->
     <div class="form-group col-sm-6 col-lg-6">
         {!! Form::label('abstract', 'Abstract:') !!}
         {!! Form::textarea('abstract', null, ['class' => 'form-control']) !!}
     </div>
+--}}
 
     <!-- Description Field -->
     <div class="form-group col-sm-6 col-lg-6">
         {!! Form::label('description', 'Description:') !!}
         {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group col-sm-6 col-lg-6">
+        <input type="file" id="picture" name="file" class="dropify" data-show-remove="false" data-max-file-size="2M" data-default-file="{!! asset('storage/upload/'.$item->picture_path) !!}" />
+{{--        <label class="custom-file-label" for="chooseFile">Escolha</label>
+        <input type="file" name="file" class="form-control" id="chooseFile">--}}
+
     </div>
 </div>
 
@@ -149,3 +162,22 @@
     <a href="{{ route('items.index') }}" class="btn btn-secondary">Voltar</a>
 </div>
 
+@push('scripts')
+    <!-- jQuery file upload -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+/*            $('#picture').on('change', function(evt) {
+                if(this.files[0].size < 2024000){
+                    $('.preloader').show();
+                    this.form.submit();
+                }else{
+                    return ;
+                }
+            });*/
+        });
+    </script>
+@endpush

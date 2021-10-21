@@ -62,6 +62,8 @@ class Item extends Model
         'subject',
         'abstract',
         'description',
+        'picture_name',
+        'picture_path',
         'state',
         'published',
         'circulation'

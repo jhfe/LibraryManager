@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-         <a href="{!! route('items.index') !!}">Item</a>
+         <a href="{!! route('users.index') !!}">User</a>
       </li>
       <li class="breadcrumb-item active">Create</li>
     </ol>
@@ -15,12 +15,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-plus-square-o fa-lg"></i>
-                                <strong>Create Item</strong>
+                                <strong>Create User</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'items.store','id'=>'itemCreate','enctype'=>"multipart/form-data"]) !!}
+                                {!! Form::open(['route' => 'users.store']) !!}
 
-                                   @include('items.fields')
+                                   @include('users.fields')
 
                                 {!! Form::close() !!}
                             </div>

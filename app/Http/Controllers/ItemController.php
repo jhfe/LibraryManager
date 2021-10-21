@@ -15,6 +15,8 @@ use App\Repositories\ItemRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use Image;
+use File;
 
 class ItemController extends AppBaseController
 {
@@ -69,6 +71,12 @@ class ItemController extends AppBaseController
         $input = $request->all();
 
         $item = $this->itemRepository->create($input);
+        if($request->hasFile('file'))
+        {
+            $input['picture_path'] = $this->uploadImage($request->file('file'),$item->id);
+            $item->picture_path = $input['picture_path'];
+            $item->save();
+        }
 
         Flash::success('Item saved successfully.');
 
@@ -139,6 +147,8 @@ class ItemController extends AppBaseController
      */
     public function update($id, UpdateItemRequest $request)
     {
+
+        $input = $request->all();
         $item = $this->itemRepository->find($id);
 
         if (empty($item)) {
@@ -147,7 +157,12 @@ class ItemController extends AppBaseController
             return redirect(route('items.index'));
         }
 
-        $item = $this->itemRepository->update($request->all(), $id);
+        if($request->hasFile('file'))
+        {
+            $input['picture_path'] = $this->uploadImage($request->file('file'),$item->id);
+        }
+
+        $item = $this->itemRepository->update($input, $id);
 
         Flash::success('Item updated successfully.');
 
@@ -176,5 +191,45 @@ class ItemController extends AppBaseController
         Flash::success('Item deleted successfully.');
 
         return redirect(route('items.index'));
+    }
+
+    public function uploadImage($file,$id)
+    {
+/*        $this->validate($file, [
+            'file' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        ]);*/
+
+        $image = $file;
+        $input['file'] = time().'.'.$image->getClientOriginalExtension();
+
+        $storageThumbnail = 'app/public/thumbnail/'.$id. '/' ;
+        $storeUpload  =  'app/public/upload/'.$id. '/' ;
+        $filePath = '/'.$id.'/';
+
+        if(!file_exists(storage_path($storageThumbnail ))) {
+            File::makeDirectory(storage_path($storageThumbnail), 0777, true, true);
+        }
+        if(!file_exists(storage_path($storeUpload ))) {
+            File::makeDirectory(storage_path($storeUpload), 0777, true, true);
+        }
+        $destinationPath = storage_path($storageThumbnail);
+        $destinationUpload = storage_path($storeUpload);
+
+        $imgFile = Image::make($image->getRealPath());
+        $imgFileUp = Image::make($image->getRealPath());
+
+
+        $imgFileUp->resize(190, 285, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationUpload.'/'.$input['file']);
+
+        $imgFile->resize(64, 80, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['file']);
+
+/*        $destinationPath = storage_path($storagePath);
+        $image->move($destinationPath, $input['file']);*/
+
+        return $filePath . $input['file'];
     }
 }
