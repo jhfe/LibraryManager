@@ -118,7 +118,7 @@
     </div>
 
     <div class="form-group col-sm-6 col-lg-6">
-        <input type="file" id="picture" name="file" class="dropify" data-show-remove="false" data-max-file-size="2M" data-default-file="{!! asset('storage/upload/'.$item->picture_path) !!}" />
+        <input type="file" id="picture" name="file" class="dropify" data-show-remove="false" data-max-file-size="2M" data-default-file="{!! asset('storage/upload/'.$item->picture_path ??'Not') !!}" />
 {{--        <label class="custom-file-label" for="chooseFile">Escolha</label>
         <input type="file" name="file" class="form-control" id="chooseFile">--}}
 
