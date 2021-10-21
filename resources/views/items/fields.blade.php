@@ -121,7 +121,7 @@
         @if(isset($item->picture_path))
         <input type="file" id="picture" name="file" class="dropify" data-show-remove="false" data-max-file-size="2M" data-default-file="{!! asset('storage/upload/'.$item->picture_path) !!}" />
         @else
-            <input type="file" id="picture" name="file" class="dropify" data-show-remove="false" data-max-file-size="2M" data-default-file="{!! asset('images/cover.png) !!}" />
+            <input type="file" id="picture" name="file" class="dropify" data-show-remove="false" data-max-file-size="2M" data-default-file="{!! asset('images/cover.png') !!}" />
         @endif
 {{--        <label class="custom-file-label" for="chooseFile">Escolha</label>
         <input type="file" name="file" class="form-control" id="chooseFile">--}}
