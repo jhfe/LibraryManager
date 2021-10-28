@@ -65,11 +65,17 @@ class UserDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'email',
-            'email_verified_at',
-            'password',
-            'remember_token'
+            [
+                "name" => "name",
+                "title" => "Nome",
+                "data" => "name"
+            ],
+            [
+                "name" => "email",
+                "title" => "Email",
+                "data" => "email"
+            ],
+
         ];
     }
 

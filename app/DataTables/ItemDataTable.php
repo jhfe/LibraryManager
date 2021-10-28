@@ -58,6 +58,11 @@ class ItemDataTable extends DataTable
                 'dom'       => 'Bfrtip',
 
                 'order'     => [[1, 'ASC']],
+                'fnDrawCallback'=> 'function () {
+
+
+
+                        }',
                 'buttons'   => [
                     /*                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                                         ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
