@@ -1,9 +1,22 @@
 .dataTables_filter input{
     float: right !important;
     width: 500px;
+    margin-left: 38px;
+    margin-bottom: 30px;
+    margin-top: -7px;  height: 35px;
     height: 35px;
 }
 
 .dataTables_paginate{
     float: right !important;
 }
+.dataTables_wrapper .dataTables_filter input::-webkit-search-cancel-button {
+    -webkit-appearance: button !important;
+    -moz-appearance: button !important;
+
+}
+
+
+
+
+

@@ -27,7 +27,7 @@
         <li class="nav-item {{ Request::is('items*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('items.index') }}">
                 <i class="nav-icon">I</i>
-                <span>Items</span>
+                <span>Catalogo Items</span>
             </a>
         </li>
         <li class="nav-item {{ Request::is('categories*') ? 'active' : '' }}">

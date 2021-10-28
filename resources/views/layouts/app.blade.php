@@ -94,12 +94,12 @@
 </div>
 <footer class="app-footer">
     <div>
-        <a href="https://infyom.com">InfyOm </a>
-        <span>&copy; 2019 InfyOmLabs.</span>
+        <a href="https://bibliotecadojanardo.pt">Biblioteca do Janardo </a>
+        <span>&copy;{{ date('Y') }}</span>
     </div>
     <div class="ml-auto">
         <span>Powered by</span>
-        <a href="https://coreui.io">CoreUI</a>
+        <a href="https://dezener.com">Dzener</a>
     </div>
 </footer>
 </body>
