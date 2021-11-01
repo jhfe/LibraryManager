@@ -10,13 +10,13 @@
     <!-- Author Id Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('author_id', 'Autor') !!}
-        {!! Form::select('author_id',$authors, null, ['class' => 'form-control select2']) !!}
+        {!! Form::select('author_id',[null=>'Selecione o Autor']+$authors, null, ['class' => 'form-control select2']) !!}
 
     </div>
     <!-- Category Id Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('category_id', 'Categoria:') !!}
-        {!! Form::select('category_id',$categories, null, ['class' => 'form-control select2']) !!}
+        {!! Form::select('category_id',[null=>'Selecione a Categoria']+$categories, null, ['class' => 'form-control select2']) !!}
 
     </div>
 </div>
@@ -35,13 +35,13 @@
     <!-- Publisher Id Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('publisher_id', 'Editora:') !!}
-        {!! Form::select('publisher_id',$publishers, null, ['class' => 'form-control select2']) !!}
+        {!! Form::select('publisher_id',[null=>'Selecione a Editora']+$publishers, null, ['class' => 'form-control select2']) !!}
 
     </div>
     <!-- Item Type Id Field -->
     <div class="form-group col-sm-3">
         {!! Form::label('item_type_id', 'Tipo de Media:') !!}
-        {!! Form::select('item_type_id',$itemTypes, null, ['class' => 'form-control select2']) !!}
+        {!! Form::select('item_type_id',[null=>'Selecione o Tipo']+$itemTypes, null, ['class' => 'form-control select2']) !!}
 
     </div>
 </div>
