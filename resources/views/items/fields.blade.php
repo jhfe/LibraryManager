@@ -3,7 +3,7 @@
     @endpush
 <div class="row">
     <!-- Title Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-5">
         {!! Form::label('title', 'Titlo:') !!}
         {!! Form::text('title', null, ['class' => 'form-control','maxlength' => 500,'maxlength' => 500]) !!}
     </div>
@@ -13,10 +13,22 @@
         {!! Form::select('author_id',[null=>'Selecione o Autor']+$authors, null, ['class' => 'form-control select2']) !!}
 
     </div>
+    <div class="form-group col-sm-1">
+        {!! Form::label('author', 'Adicionar') !!}
+        <a href="javascript:void(0)" data-target="#myModal"  data-toggle="modal"  onclick="getModal('{{ route('authorModal') }}');"
+           class="btn btn-info btn-xs"><i class="fa fa-plus-square"></i></a>
+
+    </div>
     <!-- Category Id Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
         {!! Form::label('category_id', 'Categoria:') !!}
         {!! Form::select('category_id',[null=>'Selecione a Categoria']+$categories, null, ['class' => 'form-control select2']) !!}
+
+    </div>
+    <div class="form-group col-sm-1">
+        {!! Form::label('category', 'Adicionar') !!}
+        <a href="javascript:void(0)" data-target="#myModal"  data-toggle="modal"  onclick="getModal('{{ route('categoryModal') }}');"
+           class="btn btn-info btn-xs"><i class="fa fa-plus-square"></i></a>
 
     </div>
 </div>
@@ -28,7 +40,7 @@
     </div>
 
     <!-- Call No Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-2">
         {!! Form::label('call_no', 'Call No:') !!}
         {!! Form::text('call_no', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
@@ -36,6 +48,13 @@
     <div class="form-group col-sm-3">
         {!! Form::label('publisher_id', 'Editora:') !!}
         {!! Form::select('publisher_id',[null=>'Selecione a Editora']+$publishers, null, ['class' => 'form-control select2']) !!}
+
+    </div>
+    <!-- Publisher Id Field -->
+    <div class="form-group col-sm-1">
+        {!! Form::label('publisher', 'Adicionar') !!}
+        <a href="javascript:void(0)" data-target="#myModal"  data-toggle="modal"  onclick="getModal('{{ route('publisherModal') }}');"
+           class="btn btn-info btn-xs"><i class="fa fa-plus-square"></i></a>
 
     </div>
     <!-- Item Type Id Field -->
@@ -72,6 +91,13 @@
             })
             function itemCreateSub(){
                 $('#itemCreate').submit();
+            }
+            function getModal(url) {
+                console.log(url)
+                $('.modal-body').empty();
+                $.get( url, function( data ) {
+                    $('.modal-body').append(data);
+                });
             }
         </script>
 @endpush
@@ -165,7 +191,7 @@
     <button class="btn btn-primary" onclick="$('#itemCreate').submit();">Guardar</button>
     <a href="{{ route('items.index') }}" class="btn btn-secondary">Voltar</a>
 </div>
-
+@include('layouts.modal_lg')
 @push('scripts')
     <!-- jQuery file upload -->
 

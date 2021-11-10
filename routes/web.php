@@ -39,6 +39,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('itemTypes', App\Http\Controllers\ItemTypeController::class);
 
     Route::resource('users', App\Http\Controllers\UserController::class);
+
+    Route::get('authorModal', [App\Http\Controllers\AuthorController::class, 'createModal'])->name('authorModal');
+
+    Route::get('categoryModal', [App\Http\Controllers\CategoryController::class, 'createModal'])->name('categoryModal');
+
+    Route::get('publisherModal', [App\Http\Controllers\PublisherController::class, 'createModal'])->name('publisherModal');
+
+    Route::get('itemTypeModal', [App\Http\Controllers\ItemTypeController::class, 'createModal'])->name('itemTypeModal');
 });
 
 

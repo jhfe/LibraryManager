@@ -7,4 +7,7 @@
 @push('scripts')
     @include('layouts.datatables_js')
     {!! $dataTable->scripts() !!}
+    <script>
+
+    </script>
 @endpush

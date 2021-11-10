@@ -41,7 +41,15 @@ class AuthorController extends AppBaseController
     {
         return view('authors.create');
     }
-
+    /**
+     * Show the form for creating a new Author.
+     *
+     * @return Response
+     */
+    public function createModal()
+    {
+        return view('authors.createModal');
+    }
     /**
      * Store a newly created Author in storage.
      *
@@ -56,6 +64,10 @@ class AuthorController extends AppBaseController
         $author = $this->authorRepository->create($input);
 
         Flash::success('Author saved successfully.');
+
+        if(isset($input['modal'])){
+            return redirect()->back();
+        }
 
         return redirect(route('authors.index'));
     }

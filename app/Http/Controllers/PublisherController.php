@@ -41,7 +41,15 @@ class PublisherController extends AppBaseController
     {
         return view('publishers.create');
     }
-
+    /**
+     * Show the form for creating a new Publisher.
+     *
+     * @return Response
+     */
+    public function createModal()
+    {
+        return view('publishers.createModal');
+    }
     /**
      * Store a newly created Publisher in storage.
      *
@@ -56,6 +64,10 @@ class PublisherController extends AppBaseController
         $publisher = $this->publisherRepository->create($input);
 
         Flash::success('Publisher saved successfully.');
+        if(isset($input['modal'])){
+            return redirect()->back();
+        }
+
 
         return redirect(route('publishers.index'));
     }

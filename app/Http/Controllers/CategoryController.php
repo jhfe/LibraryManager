@@ -41,7 +41,15 @@ class CategoryController extends AppBaseController
     {
         return view('categories.create');
     }
-
+    /**
+     * Show the form for creating a new Category.
+     *
+     * @return Response
+     */
+    public function createModal()
+    {
+        return view('categories.createModal');
+    }
     /**
      * Store a newly created Category in storage.
      *
@@ -57,6 +65,9 @@ class CategoryController extends AppBaseController
 
         Flash::success('Category saved successfully.');
 
+        if(isset($input['modal'])){
+            return redirect()->back();
+        }
         return redirect(route('categories.index'));
     }
 
